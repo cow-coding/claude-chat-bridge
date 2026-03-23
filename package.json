@@ -1,0 +1,43 @@
+{
+  "name": "claude-chat-bridge",
+  "version": "1.0.0",
+  "description": "Bridge conversations between Claude Chat (Desktop) and Claude Code (CLI)",
+  "main": "dist/index.js",
+  "bin": {
+    "claude-chat-bridge": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "plugin"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "claude-desktop",
+    "mcp",
+    "model-context-protocol",
+    "bridge"
+  ],
+  "author": "cow-coding",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cow-coding/claude-chat-bridge.git"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "chat-bridge",
+  "description": "Import conversations from Claude Chat (Desktop) into Claude Code context",
+  "version": "1.0.0",
+  "author": {
+    "name": "kibum"
+  }
+}
