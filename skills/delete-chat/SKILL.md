@@ -27,6 +27,8 @@ Use AskUserQuestion to confirm:
 
 If confirmed, delete the file using Bash `rm`.
 
+**Respond in the same language the user used when invoking this skill.**
+
 Show a brief confirmation:
 ```
 Deleted: <title> (2026-03-23)

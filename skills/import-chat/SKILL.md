@@ -30,7 +30,9 @@ Only show a brief confirmation:
 - Message count and date
 - A short note that the context is loaded
 
-Example output:
+**Respond in the same language the user used when invoking this skill.**
+
+Example output (Korean):
 ```
 Chat session loaded:
 - Title: AX 인프라 오케스트레이션
@@ -38,6 +40,16 @@ Chat session loaded:
 - 8 messages (2026-03-23)
 
 이 대화 맥락을 참고할 수 있습니다. 무엇을 하시겠어요?
+```
+
+Example output (English):
+```
+Chat session loaded:
+- Title: API rate limiting design
+- Summary: Discussed token bucket vs sliding window approaches...
+- 12 messages (2026-03-23)
+
+This conversation is now loaded as context. What would you like to do?
 ```
 
 ## Important

@@ -28,3 +28,5 @@ Wait until all files are read, then output exactly one table in this format:
 - Truncate summary to 50 characters max, append "..." if truncated
 - Date format: YYYY-MM-DD
 - After the table, add a tip: `Use /chat-bridge:import-chat <#> to load a session, /chat-bridge:delete-chat <#> to delete.`
+
+**Respond in the same language the user used when invoking this skill.** For example, if the user typed the command in Korean, write the "no sessions" message and the tip line in Korean. If in English, write them in English.
