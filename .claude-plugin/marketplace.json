@@ -1,0 +1,19 @@
+{
+  "name": "claude-chat-bridge",
+  "owner": {
+    "name": "cow-coding"
+  },
+  "metadata": {
+    "description": "Bridge conversations between Claude Chat (Desktop) and Claude Code (CLI)",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "chat-bridge",
+      "source": "./",
+      "description": "Import Claude Chat conversations into Claude Code context. Save chats from Desktop, load them in CLI with /list-chats and /import-chat.",
+      "category": "productivity",
+      "tags": ["chat", "bridge", "mcp", "conversation", "context-sharing"]
+    }
+  ]
+}
