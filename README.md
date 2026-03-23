@@ -53,8 +53,14 @@ Restart Claude Desktop to connect.
 
 ### 2. Claude Code Plugin
 
-```bash
-claude /install-plugin cow-coding/claude-chat-bridge
+In Claude Code, run:
+
+```
+/plugin marketplace add cow-coding/claude-chat-bridge
+```
+
+```
+/plugin install chat-bridge
 ```
 
 ## Usage
