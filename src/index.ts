@@ -219,7 +219,55 @@ server.tool(
   }
 );
 
+function getDesktopConfigPath(): string {
+  const platform = os.platform();
+  if (platform === "darwin") {
+    return path.join(os.homedir(), "Library", "Application Support", "Claude", "claude_desktop_config.json");
+  } else if (platform === "win32") {
+    return path.join(os.homedir(), "AppData", "Roaming", "Claude", "claude_desktop_config.json");
+  } else {
+    return path.join(os.homedir(), ".config", "Claude", "claude_desktop_config.json");
+  }
+}
+
+async function setup() {
+  const configPath = getDesktopConfigPath();
+  let config: Record<string, unknown> = {};
+
+  try {
+    const raw = await fs.readFile(configPath, "utf-8");
+    config = JSON.parse(raw);
+  } catch {
+    // config file doesn't exist yet
+  }
+
+  const mcpServers = (config.mcpServers ?? {}) as Record<string, unknown>;
+
+  if (mcpServers["claude-chat-bridge"]) {
+    console.log("claude-chat-bridge is already configured in Claude Desktop.");
+    return;
+  }
+
+  mcpServers["claude-chat-bridge"] = {
+    command: "npx",
+    args: ["claude-chat-bridge"],
+  };
+  config.mcpServers = mcpServers;
+
+  await fs.mkdir(path.dirname(configPath), { recursive: true });
+  await fs.writeFile(configPath, JSON.stringify(config, null, 2), "utf-8");
+
+  console.log("claude-chat-bridge added to Claude Desktop config.");
+  console.log(`Config: ${configPath}`);
+  console.log("\nRestart Claude Desktop to connect.");
+}
+
 async function main() {
+  if (process.argv.includes("--setup")) {
+    await setup();
+    return;
+  }
+
   const transport = new StdioServerTransport();
   await server.connect(transport);
   console.error("claude-chat-bridge MCP server running on stdio");

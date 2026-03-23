@@ -23,12 +23,19 @@ Claude Chat (Desktop)          Claude Code (CLI)
 ### 1. MCP Server (Claude Desktop)
 
 ```bash
-npx claude-chat-bridge
+npx claude-chat-bridge --setup
 ```
 
-Or add it directly to your Claude Desktop config:
+This automatically adds the MCP server to your Claude Desktop config. Restart Claude Desktop to connect.
+
+<details>
+<summary>Manual setup</summary>
+
+Add to your Claude Desktop config:
 
 **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+**Linux**: `~/.config/Claude/claude_desktop_config.json`
 
 ```json
 {
@@ -41,7 +48,8 @@ Or add it directly to your Claude Desktop config:
 }
 ```
 
-Restart Claude Desktop to connect the MCP tools.
+Restart Claude Desktop to connect.
+</details>
 
 ### 2. Claude Code Plugin
 
